@@ -1,0 +1,14 @@
+ <h2>Login Page</h2>
+ <div class="container">
+ <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+<div>
+User Name: <input type="text" name="username" [(ngModel)]="username">
+Password: <input type="password" name="password" [(ngModel)]="password"> &nbsp; &nbsp;
+
+
+<button (click)= handleBasicAuth() class="btn btn-success">Login</button>
+
+</div>
+<br><br>
+<div>Login component introduced to authenticate the user. UserName: user, Password: password</div>
+</div>

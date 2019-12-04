@@ -1,0 +1,20 @@
+<div class="container">
+<H1> Todo View Mode</H1>
+
+</div>
+
+<div class="container">
+  <div class="alert alert-danger" *ngIf="todoForm.dirty && todoForm.invalid">Values Cannot be Empty</div>
+  <form (ngSubmit)="!todoForm.invalid && backtoListTodos()" #todoForm="ngForm">
+  <fieldset class="form-group">
+    <label>Description</label>
+  <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" disabled="true">
+</fieldset>
+<fieldset class="form-group">
+    <label>Target Date</label>
+  <input type="date" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event"
+  class="form-control" name="targetDate" disabled="true">
+</fieldset>
+<button class="btn btn-success" type="submit">Back to todoList</button>
+</form>
+</div>

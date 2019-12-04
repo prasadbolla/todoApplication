@@ -1,0 +1,48 @@
+
+<h1> My Todo's</h1>
+<div class="alert alert-success" *ngIf='deleteConfirmation'>{{deleteConfirmation}}</div>
+<div class="alert alert-success" *ngIf='successfullEditMessage'>{{successfullEditMessage}}</div>
+<div class="alert alert-success" *ngIf='successfullCreateMessage'>{{successfullCreateMessage}}</div>
+
+<div class="container">
+<table class="table">
+
+<thead>
+<tr>
+<th>Description</th>
+<th>Target Date</th>
+<th>Status</th>
+<th>Edit</th>
+<th>Delete</th>
+<th>Mark Todo</th>
+<th>View ToDO</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let todo of todos">
+<td>{{todo.description}}</td>
+<td>{{todo.targetDate}}</td>
+<td>{{todo.status}}</td>
+<td><button (click)="editTodo(todo)" class="btn btn-warning">Edit</button></td>
+
+<td><img class="pointer" src="../../assets/img/trash.svg" (click)="deleteTodo(todo)" width="30" height="30"></td>
+<div *ngIf="todo.checked">
+<td><input type="checkbox" class="customCheckbox" (change)="markTodo(todo)" checked="true"></td>
+</div>
+<div *ngIf="!todo.checked">
+  <td><input type="checkbox" class="customCheckbox" (change)="markTodo(todo)"></td>
+</div>
+<td><button (click)="viewTodo(todo)" class="btn btn-info">View</button></td>
+<span class="oi oi-trash"></span>
+</tr>
+</tbody>
+</table>
+<div></div>
+<div></div>
+<div class="container">
+  <img class="pointer" src="../../assets/img/plus.svg" (click)="addTodo()" width="20" height="20">
+  Click (+) to add new todo
+</div>
+
+</div>
+
